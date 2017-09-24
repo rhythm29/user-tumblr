@@ -1,9 +1,9 @@
 class UserController < ApplicationController
   before_action :save_login_state, :only => [:new, :create]
-  before_action :set_cache_buster 
-  
+  before_action :set_cache_buster
+
   def new
-    @user = User.new 
+    @user = User.new
   end
 
   def create
@@ -12,17 +12,14 @@ class UserController < ApplicationController
     p params_received
     @user = User.new(params_received)
     p @user.password
-     if @user.save
+    if @user.save
       p @user.password
-      # redirect_to :controller => 'posts', :action => 'index'
       render :json => @user , :status => 200
-     else
-      p @user.errors.details
+    else
       render :json => { :errors => @user.errors.details }, :status => 422
-       # render new
-     end
+    end
   end
-  
+
   private
 
   def user_params

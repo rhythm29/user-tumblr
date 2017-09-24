@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
   	authorized_user = User.authenticate(params[:email],params[:password])
     if authorized_user
       session[:username] = authorized_user.username
-      p session[:username]
       render :json => @user , :status => 200
     else
       render :json => { :errors => "invalid login" }, :status => 401
@@ -14,7 +13,7 @@ class SessionsController < ApplicationController
   end
 
   def logout
-	  session[:username] = nil
-	  redirect_to :controller =>'user', :action => 'new'
-  end
+   session[:username] = nil
+   redirect_to :controller =>'user', :action => 'new'
+ end
 end

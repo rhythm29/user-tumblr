@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :password,:presence =>true,:confirmation =>true
   validates :email, :presence => true, :uniqueness => true, :format => EMAIL_REGEX
   validates_length_of :password, :in => 6..20, :on => :create
-  
+
   def encrypt_password
     if password.present?
       self.salt = BCrypt::Engine.generate_salt
@@ -15,25 +15,25 @@ class User < ApplicationRecord
   end
 
   def clear_password
-  	self.password = nil
+    self.password = nil
   end
 
   def self.authenticate(username_or_email="", login_password="")
-  if  EMAIL_REGEX.match(username_or_email)    
-    user = User.find_by_email(username_or_email)
-  else
-    user = User.find_by_username(username_or_email)
+    if  EMAIL_REGEX.match(username_or_email)
+      user = User.find_by_email(username_or_email)
+    else
+      user = User.find_by_username(username_or_email)
+    end
+
+    p user
+    if user && user.match_password(login_password)
+      return user
+    else
+      return false
+    end
   end
 
-  p user
-  if user && user.match_password(login_password)
-    return user
-  else
-    return false
+  def match_password(login_password="")
+    self.password == BCrypt::Engine.hash_secret(login_password, self.salt)
   end
-end
-
-def match_password(login_password="")
-  self.password == BCrypt::Engine.hash_secret(login_password, self.salt)
-end
 end

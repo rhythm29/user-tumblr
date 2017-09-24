@@ -6,18 +6,18 @@ class HomePage extends React.Component{
   }
   switch(word){
    var signup,login;
-    if(word == "signup"){signup = true;login = false;}
-    else{login = true; signup = false;}
-    return this.setState({login:login,signup:signup}) 
-  }
-  render(){
-    return(
+   if(word == "signup"){signup = true;login = false;}
+   else{login = true; signup = false;}
+   return this.setState({login:login,signup:signup}) 
+ }
+ render(){
+  return(
     <div className="space">
-        <p onClick={() => this.switch("signup")} className={this.state.signup ? "yellow selectButton":"selectButton"}>Sign In</p>
-        <p onClick={() => this.switch("login")} className={this.state.login ? "yellow selectButton":"selectButton"}> Login</p>
-   {this.state.signup?<Signup/> : null}
-   {this.state.login? <Login /> : null}
-   </div>
+    <p onClick={() => this.switch("signup")} className={this.state.signup ? "yellow selectButton":"selectButton"}>Sign In</p>
+    <p onClick={() => this.switch("login")} className={this.state.login ? "yellow selectButton":"selectButton"}> Login</p>
+    {this.state.signup?<Signup/> : null}
+    {this.state.login? <Login /> : null}
+    </div>
     )
   }
 }
