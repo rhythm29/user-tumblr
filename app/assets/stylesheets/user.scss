@@ -1,0 +1,64 @@
+
+body{
+	width:100%;
+	height:700px;
+	margin:0;
+	padding:0;}
+.space{
+	width:500px;
+	margin:auto;
+	margin-top:10%;
+	font-family: 'Roboto', sans-serif;
+}
+
+.signup,.login{
+	width:100%;
+	background:#2c3e50;
+}
+
+.signup{
+	height:400px;
+	} 
+.login{
+	height:300px;
+}
+.yellow{
+	background-color:gold;
+}
+.errorMsg{
+	color: red;
+	background:#2c3e50;
+	
+}
+
+.selectButton{
+	width:49.95%;
+	float:left;
+	color:white;
+	text-align:center;
+	padding-top:25px;
+	height:50px;
+	margin:0;
+}
+.selectButton:hover{
+	background:#f1c40f;
+	color:#2c3e50;
+	cursor:pointer;
+}
+.input,.email,.password{
+	width:250px;
+	margin-left:125px !important;
+	margin-top:20px;
+	height:25px;
+}
+
+
+
+.login_input{
+	width:250px;
+	margin-left:125px !important;
+	margin-top:20px;
+	height:25px;
+}
+
+

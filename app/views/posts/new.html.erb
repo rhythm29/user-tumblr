@@ -1,0 +1,9 @@
+<h2> <%=@current_user.username%></h2>
+<%= form_for @post do |f| %>
+  
+  <%= f.label :image %>:
+  <%= f.file_field :image %><br />
+
+  <%= f.submit %>
+<% end %>
+<%= link_to '<button type="button">Log Out</button>'.html_safe, "/sessions/logout" %>

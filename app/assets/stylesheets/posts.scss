@@ -1,0 +1,43 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.logoutButton{
+	border: 0;
+    float: right;
+    width: 100px;
+    text-align: center;
+    height: 50px;
+    position: relative;
+    top: -88px;
+    left: 10p;
+    font-size: 25px;
+    background-color: yellow;
+}
+
+.form{
+	margin-bottom: 30px;
+    position: relative;
+    left: 30rem;
+
+}
+.top{
+	width:100%;
+	background:#2c3e50;
+	height: 50px;
+	margin-bottom: 20px;
+	position: relative;
+	top: -30px
+}
+
+.text{
+	color: yellow;
+	font-size: 30px;
+}
+.content{
+  width: 10%;
+}
+
+.content:hover{
+	width: 15%;
+}

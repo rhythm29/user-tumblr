@@ -1,0 +1,9 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: photos
+  pool: 5
+  username: root
+  password: rhythm29
+  socket: /tmp/mysql.sock
+  hostname: 127.0.0.1
