@@ -1,3 +1,4 @@
+# Adds matods to b available to all sub classes. To create session.
 class ApplicationController < ActionController::Base
   protected
   def authenticate_user

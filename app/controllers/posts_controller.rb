@@ -1,3 +1,4 @@
+# It is controller for creating posts.
 class PostsController < ApplicationController
   before_action :authenticate_user, :only => [:create, :index,:show]
   before_action :set_cache_buster
@@ -14,6 +15,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    # shows all the posts created by a particular user.
     @post_create = Post.new
     @post_create.add_username(@current_user.username)
     @post_show = Post.where(:username => @current_user.username)
@@ -25,6 +27,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
+    # for capturing error message if user clicks on create post without seleting post
     if !params[:post]
       return nil
     end
