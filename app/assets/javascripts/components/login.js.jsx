@@ -1,3 +1,4 @@
+//Login component for creating login page.
 class Login extends React.Component{
   constructor(props){
     super(props);
@@ -36,13 +37,13 @@ class Login extends React.Component{
   render(){
     return(
       <div className="login">
-      <form onSubmit={this.handleSubmit}>
-      <input type="text"  className="login_input" id="email" placeholder="Email/Username" value={this.state.email} onChange={this.handleChange} />
-      <input type="password" className="login_input" id="password" placeholder="password" value={this.state.password} onChange={this.handleChange} />
-      <input type="submit" className="login_input" value="Send" />
-      </form>
-      {this.state.errors? <Error msg= {this.state.errors} />: null}
+        <form onSubmit={this.handleSubmit}>
+          <input type="text"  className="login_input" id="email" placeholder="Email/Username" value={this.state.email} onChange={this.handleChange} />
+          <input type="password" className="login_input" id="password" placeholder="password" value={this.state.password} onChange={this.handleChange} />
+          <input type="submit" className="login_input" value="Send" />
+        </form>
+        {this.state.errors? <Error msg= {this.state.errors} />: null}
       </div>
-      )
+    )
   }
 }

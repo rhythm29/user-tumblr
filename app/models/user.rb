@@ -1,3 +1,4 @@
+# Model for user controller. It validates all the form fields presence and uniqueness.
 class User < ApplicationRecord
   before_save :encrypt_password
   after_save :clear_password
@@ -6,7 +7,8 @@ class User < ApplicationRecord
   validates :password,:presence =>true,:confirmation =>true
   validates :email, :presence => true, :uniqueness => true, :format => EMAIL_REGEX
   validates_length_of :password, :in => 6..20, :on => :create
-
+  
+  # for storing encrypted password in DB uses a gem Bcrypt.
   def encrypt_password
     if password.present?
       self.salt = BCrypt::Engine.generate_salt
@@ -17,7 +19,7 @@ class User < ApplicationRecord
   def clear_password
     self.password = nil
   end
-
+  # for authenticating user compares entered values with values in database.
   def self.authenticate(username_or_email="", login_password="")
     if  EMAIL_REGEX.match(username_or_email)
       user = User.find_by_email(username_or_email)

@@ -1,3 +1,4 @@
+# for implementing session for login and clearing session for logout
 class SessionsController < ApplicationController
   before_action :save_login_state, :only => [:login]
   before_action :set_cache_buster	
